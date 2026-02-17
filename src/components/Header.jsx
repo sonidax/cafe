@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
-
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
 
   useEffect(() => {
@@ -31,17 +31,33 @@ export default function Header() {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [scrolled]); // Removed activeSection dependency to avoid loop
+  }, [scrolled]);
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
 
   return (
     <header className={`header ${scrolled ? 'scrolled' : ''}`}>
       <div className="container header-container">
         <div className="logo">MATON</div>
-        <nav className="nav-links">
-          <a href="#hero" className={activeSection === 'hero' ? 'active' : ''}>Home</a>
-          <a href="#products" className={activeSection === 'products' ? 'active' : ''}>Products</a>
-          <a href="#testimonials" className={activeSection === 'testimonials' ? 'active' : ''}>Testimonials</a>
+
+        {/* Hamburger Button */}
+        <button className={`hamburger-btn ${mobileMenuOpen ? 'open' : ''}`} onClick={toggleMobileMenu} aria-label="Toggle menu">
+          <span className="bar"></span>
+          <span className="bar"></span>
+          <span className="bar"></span>
+        </button>
+
+        {/* Navigation */}
+        <nav className={`nav-links ${mobileMenuOpen ? 'mobile-open' : ''}`}>
+          <a href="#hero" className={activeSection === 'hero' ? 'active' : ''} onClick={() => setMobileMenuOpen(false)}>Home</a>
+          <a href="#products" className={activeSection === 'products' ? 'active' : ''} onClick={() => setMobileMenuOpen(false)}>Products</a>
+          <a href="#testimonials" className={activeSection === 'testimonials' ? 'active' : ''} onClick={() => setMobileMenuOpen(false)}>Testimonials</a>
         </nav>
+
+        {/* Overlay for mobile execution */}
+        {mobileMenuOpen && <div className="mobile-overlay" onClick={() => setMobileMenuOpen(false)}></div>}
       </div>
     </header>
   );
