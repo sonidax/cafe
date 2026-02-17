@@ -400,6 +400,8 @@
   }
 
   .nav-links {
+    display: flex;
+    /* FIXED: Added flex display */
     position: fixed;
     top: 0;
     right: -100%;
@@ -457,7 +459,10 @@
   }
 
   .hero-image-wrapper {
-    /* Ensure image covers background */
+    z-index: 1;
+    /* FIXED: Ensure it is above background but below text (text is z-5) */
+    opacity: 0.8;
+    /* Slight opacity to make text readable if overlapping */
   }
 
   .hero-main-img {
