@@ -12,7 +12,7 @@ export default function Footer() {
 
                     <div className="footer-links">
                         <a href="mailto:daxsoni516@gmail.com">daxsoni516@gmail.com</a>
-                        <p>=+91 9537630626</p>
+                        <p>+91 9537630626</p>
                     </div>
 
                     <div className="footer-nav">
