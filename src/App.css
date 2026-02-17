@@ -1146,8 +1146,20 @@
   }
 
   .footer-visual {
-    display: none;
-    /* Hide complex footer image on mobile if it breaks layout, or Adjust */
+    display: flex;
+    /* FIXED: Show image */
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 40px;
+    /* Space between image and text */
+  }
+
+  .footer-img {
+    width: 250px;
+    height: 250px;
+    border-radius: 125px 125px 0 0;
+    /* Scale down radius */
+    border-width: 3px;
   }
 }
 
