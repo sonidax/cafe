@@ -11,8 +11,8 @@ export default function Footer() {
                     <button className="btn-primary">Subscribe {`->`}</button>
 
                     <div className="footer-links">
-                        <a href="mailto:matcha@gamil.com">matcha@gamil.com</a>
-                        <p>+62 812 3456 7890</p>
+                        <a href="mailto:daxsoni516@gmail.com">daxsoni516@gmail.com</a>
+                        <p>=+91 9537630626</p>
                     </div>
 
                     <div className="footer-nav">
