@@ -1,0 +1,867 @@
+/* Component Styles */
+
+/* HEADER */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 0;
+  z-index: 100;
+  color: var(--text-white);
+  background: transparent;
+  /* Default transparent for Hero */
+  transition: all 0.4s ease;
+}
+
+/* Scrolled state applied via JS */
+.header.scrolled {
+  background: rgba(11, 26, 18, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 15px 0;
+  /* Compact on scroll */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.nav-links a {
+  margin: 0 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  opacity: 1;
+}
+
+
+
+.header-utils a {
+  margin-left: 25px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* HERO */
+/* HERO sticky wrapper */
+.hero-wrapper {
+  position: relative;
+  height: 300vh;
+  /* Determines the scroll duration */
+  background-color: var(--bg-dark);
+}
+
+.scroll-indicator {
+  position: absolute;
+  right: 40px;
+  /* Moved to far right margin */
+  bottom: 50%;
+  transform: translateY(50%);
+  /* Centered vertically relative to the screen height or balanced with text */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  z-index: 20;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  height: 40%;
+  /* Match visual height roughly */
+  justify-content: space-between;
+}
+
+.scroll-indicator span {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  margin-bottom: 0;
+}
+
+.arrow-line {
+  width: 1px;
+  height: 100%;
+  /* Fill the container */
+  background-color: rgba(255, 255, 255, 0.4);
+  position: relative;
+}
+
+.arrow-line::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  /* Larger arrow head */
+  height: 12px;
+  border-right: 2px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.hero {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  background-color: var(--bg-dark);
+  color: var(--text-white);
+  padding: 120px 0 60px;
+  /* Reduced top padding as it's sticky */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  /* Center vertically */
+  z-index: 10;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+/* Hero Left */
+.hero-col-left {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-start;
+  /* Start from top */
+  padding-top: 10vh;
+  /* Shifted upwards to align with rim roughly */
+  gap: 40px;
+  /* Reduced gap for tighter grouping */
+  align-items: flex-start;
+  text-align: left;
+  position: relative;
+}
+
+.hero-cta-wrapper {
+  margin-top: 60px;
+  /* Separation from text */
+}
+
+/* Ensure bottom space is clear - using margin/padding balance */
+
+.hero-badge h3 {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.hero-badge p {
+  font-size: 0.8rem;
+  color: var(--text-white-muted);
+  line-height: 1.4;
+  max-width: 200px;
+}
+
+.jp-text-block h2 {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  opacity: 0.3;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  letter-spacing: 0.5em;
+}
+
+/* Hero Center */
+.hero-col-center {
+  text-align: center;
+  position: relative;
+}
+
+.hero-title {
+  font-size: 2.8rem;
+  /* Reduced from 4rem */
+  line-height: 1.1;
+  margin-bottom: 25px;
+  /* Added space between EN and JP text */
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.serif-italic {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.hero-image-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  max-width: none;
+  /* Remove previous constraint */
+  aspect-ratio: auto;
+}
+
+.sequence-wrapper {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  /* Remove circle shape */
+  overflow: hidden;
+  position: relative;
+  /* Add a dark gradient overlay for text readability */
+}
+
+.sequence-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(11, 26, 18, 0.4) 0%, rgba(11, 26, 18, 0.9) 100%);
+  z-index: 2;
+}
+
+.hero-main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Ensure content sits on top */
+.hero-grid {
+  position: relative;
+  z-index: 5;
+  height: 100%;
+  /* Ensure grid takes full height if needed */
+}
+
+.sequence-wrapper {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4));
+}
+
+.hero-main-img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  /* Just in case it needs rounding, though image is square-ish */
+}
+
+/* Hero Right */
+.hero-col-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  /* Right align content */
+  gap: 120px;
+}
+
+.rating-circle {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.circle-inner {
+  width: 100%;
+  height: 100%;
+  background-color: #4a6741;
+  /* Muted green placeholder */
+  border-radius: 50%;
+}
+
+.product-highlight {
+  text-align: right;
+}
+
+.product-highlight h4 {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.product-highlight p {
+  font-size: 0.85rem;
+  color: var(--text-white-muted);
+  margin-bottom: 15px;
+  max-width: 200px;
+  margin-left: auto;
+}
+
+.weight {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-col-left,
+  .hero-col-right {
+    align-items: center;
+    text-align: center;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .product-highlight {
+    text-align: center;
+  }
+
+  .product-highlight p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .jp-text-block {
+    display: none;
+  }
+}
+
+/* STARTER KIT */
+.starter-kit {
+  background-color: var(--bg-light);
+  padding: var(--section-spacing) 0;
+  color: var(--text-black);
+}
+
+.starter-grid {
+  display: flex;
+  /* Or grid */
+  align-items: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.starter-img-col {
+  flex: 1.5;
+  position: relative;
+}
+
+.starter-main-img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.price-tag-floating {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--text-black);
+}
+
+.price-tag-floating .currency {
+  font-size: 1.5rem;
+  vertical-align: super;
+}
+
+.callout {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(5px);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.callout .dot {
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  /* Lime green dot */
+  border-radius: 50%;
+  display: block;
+}
+
+/* Positioning callouts approximately based on likely image content */
+.callout-whisk {
+  top: 20%;
+  right: 10%;
+}
+
+.callout-bowl {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.callout-powder {
+  bottom: 30%;
+  right: 20%;
+}
+
+.starter-info-col {
+  flex: 1;
+}
+
+.starter-info-col h2 {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.starter-info-col p {
+  color: var(--text-black-muted);
+  margin-bottom: 30px;
+  max-width: 300px;
+}
+
+/* BENEFITS SECTION */
+.benefits-section {
+  background-color: var(--bg-light);
+  padding: 0 0 var(--section-spacing);
+  color: var(--text-black);
+}
+
+.benefits-intro {
+  display: flex;
+  gap: 60px;
+  margin-bottom: 80px;
+}
+
+.benefits-intro h2 {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  flex: 0.8;
+}
+
+.benefits-gallery {
+  flex: 1.5;
+  display: flex;
+  gap: 30px;
+}
+
+.benefit-card {
+  position: relative;
+  flex: 1;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.benefit-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.benefit-card:hover img {
+  transform: scale(1.05);
+}
+
+.img-label {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: white;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.benefits-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.feature-item {
+  text-align: center;
+}
+
+.feature-icon {
+  width: 50px;
+  height: 50px;
+  background: #E0E4D9;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  background-size: cover;
+}
+
+/* Simulate icons with simple circles + inner colors for now */
+.icon-color {
+  background: radial-gradient(circle, #7db35c 30%, #E0E4D9 31%);
+}
+
+.icon-authentic {
+  background: radial-gradient(circle, #4a6741 30%, #E0E4D9 31%);
+}
+
+.icon-health {
+  background: radial-gradient(circle, #B9FF3D 30%, #E0E4D9 31%);
+}
+
+.feature-item h4 {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.feature-item p {
+  font-size: 0.9rem;
+  color: var(--text-black-muted);
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .starter-grid {
+    flex-direction: column-reverse;
+  }
+
+  .benefits-intro {
+    flex-direction: column;
+  }
+
+  .benefits-features {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* PRODUCT COLLECTION */
+.product-collection {
+  padding: var(--section-spacing) 8;
+  background-color: var(--bg-light);
+}
+
+.section-title {
+  font-size: 3rem;
+  margin-bottom: 60px;
+}
+
+.collection-grid-top {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.collection-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.mini-card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.mini-card-info h4 {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+.mini-card-info p {
+  font-size: 0.8rem;
+  color: var(--text-black-muted);
+  margin-bottom: 10px;
+}
+
+.mini-card-img-placeholder {
+  width: 80px;
+  height: 80px;
+  background-color: #4a6741;
+  border-radius: 50%;
+}
+
+.collection-feature {
+  background: white;
+  border-radius: 12px;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.collection-feature .feature-info {
+  flex: 1;
+}
+
+.jp-label {
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  opacity: 0.6;
+}
+
+.collection-feature h3 {
+  font-size: 2.2rem;
+  margin: 10px 0;
+  line-height: 1.1;
+}
+
+.price-large {
+  font-size: 1.8rem;
+  font-weight: 600;
+  display: block;
+  margin-top: 15px;
+}
+
+.feature-img-wrapper img {
+  width: 250px;
+  height: auto;
+}
+
+.collection-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.product-card-small {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s;
+}
+
+.product-card-small:hover {
+  transform: translateY(-5px);
+}
+
+.product-card-small img {
+  height: 150px;
+  width: auto;
+  margin: 20px auto;
+  object-fit: contain;
+}
+
+/* ESSENTIALS */
+.essentials-section {
+  padding: 0 0 var(--section-spacing);
+}
+
+.essentials-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.essential-card {
+  background: white;
+  border-radius: 20px;
+  padding: 20px 40px 40px 40px;
+  /* Reduced top padding to shift text up */
+  position: relative;
+  overflow: hidden;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.essential-card .essential-info {
+  position: relative;
+  z-index: 2;
+  margin-top: -20px;
+
+  h3 {
+    margin-bottom: 0px;
+  }
+}
+
+.essential-card h3 {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.essential-img-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -37%);
+  width: 80%;
+}
+
+.essential-tag {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.2rem;
+  font-family: var(--font-serif);
+  color: white;
+  opacity: 0.9;
+  z-index: 2;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  /* If image is dark, else customize */
+}
+
+
+/* FOOTER */
+.footer {
+  background-color: var(--bg-dark);
+  color: var(--text-white);
+  padding: 100px 0 50px;
+  overflow: hidden;
+}
+
+.footer-grid {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* Center image and text block vertically */
+  justify-content: space-between;
+  gap: 40px;
+  text-align: left;
+}
+
+.footer-cta {
+  flex: 1;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  /* Default align-items: stretch, but we want mixed alignment */
+}
+
+/* Top part aligned left */
+.footer-cta h2,
+.footer-cta p.cta-text,
+.footer-cta .btn-primary {
+  align-self: flex-start;
+  text-align: left;
+}
+
+/* Specific selector for the p tag often needs to be specific if there are multiple */
+.footer-cta h2 {
+  font-size: 3.5rem;
+  /* Slightly larger for impact */
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+
+.footer-cta p {
+  margin-bottom: 30px;
+  color: var(--text-white-muted);
+  font-size: 1.1rem;
+}
+
+/* Bottom elements aligned left */
+.footer-links {
+  margin: 50px 0 30px;
+  display: flex;
+  gap: 30px;
+  color: var(--text-white-muted);
+  justify-content: flex-start;
+  align-self: flex-start;
+}
+
+.footer-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 60px;
+  font-size: 0.9rem;
+  color: var(--text-white-muted);
+  text-align: left;
+  align-self: flex-start;
+}
+
+.footer-bottom {
+  display: flex;
+  gap: 30px;
+  font-size: 0.8rem;
+  opacity: 0.5;
+  justify-content: flex-start;
+  align-self: flex-start;
+}
+
+.footer-visual {
+  flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  /* The image is on the right because it is the second child in DOM */
+}
+
+.footer-img {
+  width: 500px;
+  height: 500px;
+  object-fit: cover;
+  border: 4px solid white;
+  transform: translateY(20px);
+
+  /* UPDATED SHAPE: Top-left, Top-right, Bottom-right, Bottom-left */
+  border-radius: 250px 250px 0 0;
+}
+
+
+@media (max-width: 1024px) {
+  .collection-grid-top {
+    grid-template-columns: 1fr;
+  }
+
+  .collection-row {
+    grid-template-columns: 1fr;
+  }
+
+  .essentials-grid {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .footer-grid {
+    flex-direction: column-reverse;
+    /* Image on top? or text on top? Usually Image top or Text top. Let's stack naturally (Text top) or reverse if image is decorative. */
+    text-align: center;
+    gap: 60px;
+  }
+
+  .footer-cta {
+    align-items: center;
+    /* Center everything on mobile */
+  }
+
+  .footer-cta h2,
+  .footer-cta p,
+  .footer-cta .btn-primary {
+    align-self: center;
+    text-align: center;
+  }
+}
