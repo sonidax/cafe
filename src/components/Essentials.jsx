@@ -4,7 +4,7 @@ import cakeImg from '../assets/product_matcha_cake_1769626899483.png';
 
 export default function Essentials() {
     return (
-        <section className="essentials-section">
+        <section className="essentials-section" id="essentials">
             <div className="container">
                 <h2 className="section-title text-center">Matcha Pairing <br /> Essentials</h2>
 

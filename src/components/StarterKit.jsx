@@ -3,7 +3,7 @@ import starterKitImg from '../assets/starter_kit_combo_1769626807532.png';
 
 export default function StarterKit() {
     return (
-        <section className="starter-kit">
+        <section className="starter-kit" id="starter-kit">
             <div className="container starter-grid">
                 <div className="starter-img-col">
                     <img src={starterKitImg} alt="Matcha Starter Kit" className="starter-main-img" />

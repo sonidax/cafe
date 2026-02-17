@@ -16,10 +16,10 @@ export default function Footer() {
                     </div>
 
                     <div className="footer-nav">
-                        <a href="#">Matcha powder ↗</a>
-                        <a href="#">Matcha starter kit ↗</a>
-                        <a href="#">Matcha whisk tea ↗</a>
-                        <a href="#">Matcha sole powder ↗</a>
+                        <a href="#products">Matcha powder ↗</a>
+                        <a href="#starter-kit">Matcha starter kit ↗</a>
+                        <a href="#products">Matcha whisk tea ↗</a>
+                        <a href="#essentials">Matcha sole powder ↗</a>
                     </div>
 
                     <div className="footer-bottom">
